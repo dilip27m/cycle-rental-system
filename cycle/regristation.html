@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <style>
+    /* CSS for registration page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      width: 500px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    input[type="file"] {
+      margin-bottom: 15px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+    .restriction {
+      font-size: 12px;
+      color: #888;
+      margin-top: -10px;
+      display: none;
+    }
+    .invalid {
+      border-color: red;
+    }
+    .home{
+        padding: 20px;
+
+    }
+  </style>
+</head>
+<body>
+    <div class="home"><a href="http://127.0.0.1:5500/index.html">home</a></div>
+    
+
+<div class="container">
+  <h2>Registration</h2>
+  <form id="registrationForm" action="#" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <input type="text" name="name" placeholder="Enter Name as per Aadhaar Card" required autofocus>
+    <input type="number" name="age" placeholder="Age" required>
+    <input type="number" name="phone" placeholder="Phone Number (10 digits)" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10">
+    <textarea name="address" placeholder="Address" rows="4" required></textarea>
+    <input type="number" name="aadhaar_number" placeholder="Aadhaar Number (12 digits)" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="12">
+    <label for="aadhaar_copy">Upload Aadhaar Card:</label>
+    <input type="file" name="aadhaar_copy" id="aadhaar_copy" required>
+    <input type="text" name="username" id="username" placeholder="Username" required onfocus="showRestriction('username')">
+    <div class="restriction" id="usernameRestriction">Username must be at least 6 characters long.</div>
+    <input type="password" name="password" id="password" placeholder="Password" required onfocus="showRestriction('password')">
+    <div class="restriction" id="passwordRestriction">Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.</div>
+    <input type="password" name="retype_password" id="retype_password" placeholder="Retype Password" required onfocus="showRestriction('retype')">
+    <div class="restriction" id="retypeRestriction">Retype password must match the password.</div>
+    <input type="submit" value="Register">
+    <div id="registrationMessage" style="display: none; color: green; text-align: center; margin-top: 20px;">
+      Registration successful!
+    </div>
+  </form>
+</div>
+
+<script>
+  function showRestriction(field) {
+    var restrictionDiv = document.getElementById(field + 'Restriction');
+    restrictionDiv.style.display = 'block';
+  }
+
+  function validateForm() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var retypePassword = document.getElementById("retype_password").value;
+    var phone = document.getElementsByName("phone")[0].value;
+    var aadhaarNumber = document.getElementsByName("aadhaar_number")[0].value;
+    var isValid = true;
+
+    if (username.length < 6) {
+      showRestriction('username');
+      document.getElementById("username").classList.add("invalid");
+      isValid = false;
+    } else {
+      document.getElementById("username").classList.remove("invalid");
+    }
+
+    if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) {
+      showRestriction('password');
+      document.getElementById("password").classList.add("invalid");
+      isValid = false;
+    } else {
+      document.getElementById("password").classList.remove("invalid");
+    }
+
+    if (retypePassword !== password) {
+      showRestriction('retype');
+      document.getElementById("retype_password").classList.add("invalid");
+      isValid = false;
+    } else {
+      document.getElementById("retype_password").classList.remove("invalid");
+    }
+
+    if (phone.length !== 10) {
+      alert("Phone number must be 10 digits.");
+      isValid = false;
+    }
+
+    if (aadhaarNumber.length !== 12) {
+      alert("Aadhaar number must be 12 digits.");
+      isValid = false;
+    }
+
+    if (isValid) {
+      document.getElementById("registrationMessage").style.display = "block";
+    }
+
+    return isValid;
+  }
+</script>
+
+</body>
+</html>
