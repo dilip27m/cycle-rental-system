@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(./assets/WhatsApp\ Image\ 2024-05-07\ at\ 12.20.57.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+nav {
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.left-corner, .right-corner {
+    display: flex;
+}
+
+.left-corner a, .right-corner a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.right-corner a:first-child {
+    margin-right: 20px;}
+
+.right-corner a:last-child {
+    margin-left: auto; 
+    /* Pushes "Register" to the right corner */
+}
+
+/* menu icon */
+.menu-icon {
+    display: none; 
+    /* hide the menu icon */
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0; 
+    transition: all 0.3s ease; 
+}
+
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Display the menu icon on smaller screens */
+        cursor: pointer;
+         /* Add pointer cursor */
+    }
+
+    .left-corner {
+        display: none; /* Hide the corner buttons */
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: flex-start;
+        
+         /* Align buttons to the start of the container */
+    }
+
+    .menu-open  {
+        display: flex;
+       
+ /* Display the corner buttons when menu is open */
+    }
+
+    .menu-open .bar:nth-child(1) {
+        transform: translateY(10px) translateX(16px) rotate(-45deg); /* Rotate first bar */
+    }
+
+    .menu-open .bar:nth-child(2) {
+        opacity: 0; /* Hide the middle bar */
+    }
+
+    .menu-open .bar:nth-child(3) {
+        transform: translateY(10px) translateX(-16px) rotate(45deg); /* Rotate third bar */
+    }
+}
+
+/* Styling for hover effects */
+.left-corner a:hover,
+.right-corner a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: goldenrod;
+    border-color: goldenrod;
+}
+
+/* Welcome message styles */
+.welcome-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.welcome-message p {
+    font-size: 24px;
+    margin: 10px 0;
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.welcome-message p:nth-child(1) {
+    animation-name: fadeIn;
+    animation-delay: 0.5s;
+}
+
+.welcome-message p:nth-child(2) {
+    animation-name: fadeIn;
+    animation-delay: 2s;
+}
+
+.welcome-message p:nth-child(3) {
+    animation-name: fadeIn;
+    animation-delay: 3.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+img{
+    width: 30px;
+    height:30px;
+    margin:10px;
+    border-radius: 50%;
+}
+.contact{
+    position: absolute;
+    bottom: 50px;
+    left: 40%;
+    justify-content: center;
+
+
+}
+footer {
+    background-color:transparent;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    
+}
+::placeholder {
+    color: black;
+}

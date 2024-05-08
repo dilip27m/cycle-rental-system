@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(../assets/WhatsApp\ Image\ 2024-05-07\ at\ 12.20.57.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+
+  .container {
+    width: 400px;
+    margin: 50px auto;
+    
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: transparent;
+    
+  }
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: transparent;
+  }
+  input[type="file"] {
+    margin-bottom: 15px;
+    background-color: transparent;
+  }
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #555;
+  }
+  .restriction {
+    font-size: 12px;
+    color: #888;
+    margin-top: -10px;
+    display: none;
+  }
+  .invalid {
+    border-color: red;
+  }

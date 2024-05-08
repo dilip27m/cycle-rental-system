@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./stylesheets/dashboard.css">
+</head>
+<body>
+    <nav>
+        <div class="left-corner">
+            <a href="http://127.0.0.1:5500/index.html">Home</a>
+            <a href="http://127.0.0.1:5500/rent.html">Rent</a>
+            <a href="http://127.0.0.1:5500/dashboard.html">Dashboard</a>
+            <a href="#">About us</a>
+        </div>
+        <div class="right-corner">
+            <a href="http://127.0.0.1:5500/login.html#">Login</a>
+            <a href="http://127.0.0.1:5500/regristation.html">Register</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2>User Details</h2>
+        <div class="card">
+            <p><strong>Name:</strong> <span id="userName"></span></p>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+            <p><strong>Aadhaar Number:</strong> <span id="userAadhaar"></span></p>
+            <p><strong>Start Time:</strong> <span id="startTime"></span></p>
+            <p><strong>End Time:</strong> <span id="endTime"></span></p>
+            <p><strong>Token:</strong> <span id="userToken"></span></p>
+        </div>
+    </div>
+    <footer>
+        <div >
+            <a><img src="/assets/twitter-2012-negative-logo-5C6C1F1521-seeklogo.com.png"></a>
+            <a><img src="/assets/images.png"></a>
+            <a><img src="/assets/images.jpeg"></a>
+            <a><img src="/assets/images (1).png"></a>
+            <a><img src="/assets/images (1).jpeg"></a>
+        </div>
+    </footer>
+
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const userDetails = {
+            name: urlParams.get('name'),
+            email: urlParams.get('email'),
+            phone: urlParams.get('phone'),
+            aadhaar: urlParams.get('aadhaar'),
+            startTime: urlParams.get('startTime'),
+            endTime: urlParams.get('endTime'),
+            token: urlParams.get('token')
+        };
+
+        // Display user details
+        document.getElementById('userName').textContent = userDetails.name;
+        document.getElementById('userEmail').textContent = userDetails.email;
+        document.getElementById('userPhone').textContent = userDetails.phone;
+        document.getElementById('userAadhaar').textContent = userDetails.aadhaar;
+        document.getElementById('startTime').textContent = userDetails.startTime;
+        document.getElementById('endTime').textContent = userDetails.endTime;
+        document.getElementById('userToken').textContent = userDetails.token;
+    </script>
+        <script src="script.js"></script>
+</body>
+</html>

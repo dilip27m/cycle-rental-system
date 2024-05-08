@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./stylesheets/rent.css">
+</head>
+<body>
+    <nav>
+        <div class="left-corner">
+            <a href="http://127.0.0.1:5500/index.html">Home</a>
+            <a href="http://127.0.0.1:5500/rent.html">Rent</a>
+            <a href="http://127.0.0.1:5500/dashboard.html">Dashboard</a>
+            <a href="#">About us</a>
+        </div>
+        <div class="right-corner">
+            <a href="http://127.0.0.1:5500/login.html#">Login</a>
+            <a href="http://127.0.0.1:5500/regristation.html">Register</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+ 
+    <div class="container">
+
+        <div class="rental-details-container">
+            <div class="rental-form">
+                <h3>Rental Form:</h3>
+                <form action="#" id="rentalForm">                    
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                    
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Phone number should be 10 digits" required><br>
+                    
+                    <label for="aadhaar">Aadhaar Number:</label>
+                    <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" title="Aadhaar number should be 12 digits" required><br>
+                    
+                    <label for="cycleType">Cycle Type:</label>
+                    <select id="cycleType" name="cycleType">
+                        <option value="city">City Bike - $10 per hour</option>
+                        <option value="mountain">Mountain Bike - $15 per hour</option>
+                        <option value="electric">Electric Bike - $20 per hour</option>
+                    </select><br>
+                    
+                    <label for="startTime">Start Time:</label>
+                    <input type="datetime-local" id="startTime" name="startTime" required><br>
+                    
+                    <label for="endTime">End Time:</label>
+                    <input type="datetime-local" id="endTime" name="endTime" required><br>
+                    
+                    <label for="coupon">Coupon:</label>
+                    <input type="text" id="coupon" name="coupon"><br>
+
+                    <button type="button" id="showFares">Show Fares</button> <!-- Show Fares button -->
+                </form>
+            </div>
+            <div class="rental-cost-container" id="rentalCostContainer">
+                <h3>Rental Cost:</h3>
+                <p id="rentalCost" style="font-size: large;font-weight: 900;">Please fill out the form above to calculate rental cost.</p>
+            </div>
+        </div>
+        <div class="user-details-container" id="userDetailsContainer">
+            <h3>User Details:</h3>
+            <p id="userName"></p>
+            <p id="userEmail"></p>
+            <p id="userPhone"></p>
+            <p id="userAadhaar"></p>
+            <p id="userToken"></p>
+            <p id="startTime"></p>
+            <p id="endTime"></p>
+            <button type="submit" onclick="redirectToDashboard()">Rent & Pay Online</button>
+        </div>
+    </div>
+    <footer>
+        <div >
+            <a><img src="/assets/twitter-2012-negative-logo-5C6C1F1521-seeklogo.com.png"></a>
+            <a><img src="/assets/images.png"></a>
+            <a><img src="/assets/images.jpeg"></a>
+            <a><img src="/assets/images (1).png"></a>
+            <a><img src="/assets/images (1).jpeg"></a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('showFares').addEventListener('click', function() {
+            calculateRentalCost();
+            showUserDetails();
+        });
+
+        function calculateRentalCost() {
+            // Retrieve start and end times
+            var startTime = new Date(document.getElementById('startTime').value);
+            var endTime = new Date(document.getElementById('endTime').value);
+
+            // Get cycle type and hourly rate
+            var cycleType = document.getElementById('cycleType').value;
+            var hourlyRate = 10; // Default rate for city bike
+            if (cycleType === 'mountain') {
+                hourlyRate = 15;
+            } else if (cycleType === 'electric') {
+                hourlyRate = 20;
+            }
+
+            // Calculate rental cost
+            var hours = Math.abs(endTime - startTime) / 36e5; // Convert milliseconds to hours
+            var rentalCost = hours * hourlyRate;
+
+            // Apply coupon discount if valid
+            var coupon = document.getElementById('coupon').value;
+            if (coupon === 'CYCLE50') {
+                rentalCost *= 0.9; // Apply 10% discount
+            }
+
+            // Display rental cost
+            document.getElementById('rentalCost').textContent = 'Rental Cost: $' + rentalCost.toFixed(2);
+            document.getElementById('rentalCostContainer').style.display = 'block'; // Show rental cost container
+        }
+
+        function showUserDetails() {
+            var userName = document.getElementById('name').value;
+            var userEmail = document.getElementById('email').value;
+            var userPhone = document.getElementById('phone').value;
+            var userAadhaar = document.getElementById('aadhaar').value;
+
+            // Generate random token
+            var userToken = generateToken();
+
+            // Display user details
+            document.getElementById('userName').textContent = 'Name: ' + userName;
+            document.getElementById('userEmail').textContent = 'Email: ' + userEmail;
+            document.getElementById('userPhone').textContent = 'Phone: ' + userPhone;
+            document.getElementById('userAadhaar').textContent = 'Aadhaar Number: ' + userAadhaar;
+            document.getElementById('userToken').textContent = 'Token: ' + userToken;
+            document.getElementById('startTime').textContent = 'Start Time: ' + document.getElementById('startTime').value;
+            document.getElementById('endTime').textContent = 'End Time: ' + document.getElementById('endTime').value;
+
+            // Show user details container
+            document.getElementById('userDetailsContainer').style.display = 'block';
+        }
+
+        function generateToken() {
+            var token = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < 12; i++) {
+                token += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return token;
+        }
+
+        function redirectToDashboard() {
+            var userDetails = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            aadhaar: document.getElementById('aadhaar').value,
+            token: generateToken(),
+            startTime: document.getElementById('startTime').value,
+            endTime: document.getElementById('endTime').value
+        };
+        var queryParams = new URLSearchParams(userDetails).toString();
+        window.location.href = 'dashboard.html?' + queryParams;
+}
+    </script>
+        <script src="script.js"></script>
+</body>
+</html>
