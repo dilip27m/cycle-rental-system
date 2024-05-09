@@ -79,6 +79,7 @@ nav {
  /* Display the corner buttons when menu is open */
     }
 
+
     .menu-open .bar:nth-child(1) {
         transform: translateY(10px) translateX(16px) rotate(-45deg); /* Rotate first bar */
     }
@@ -146,21 +147,14 @@ img{
     margin:10px;
     border-radius: 50%;
 }
-.contact{
-    position: absolute;
-    bottom: 50px;
-    left: 40%;
-    justify-content: center;
 
-
-}
 footer {
     background-color:transparent;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
     
 }
