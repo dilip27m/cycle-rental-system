@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Page</title>
+    <link rel="stylesheet" href="settingscss.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <button data-section="personalInfo" class="active">Personal Information</button>
+            <button data-section="updatePassword">Update Password</button>
+            <button data-section="deleteAccount">Delete Account</button>
+        </div>
+        <div class="content">
+            <div id="personalInfo" class="section active">
+                <h2>Personal Information</h2>
+                <div class="content-body">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" value="">
+                    <span class="error-message" id="fullNameError"></span>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="">
+                    <span class="error-message" id="emailError"></span>
+
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" value="">
+                    <span class="error-message" id="dobError"></span>
+
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" value="">
+                    <span class="error-message" id="phoneError"></span>
+
+                    <button class="save-button" onclick="saveChanges()">Save Changes</button>
+                </div>
+            </div>
+            <div id="updatePassword" class="section">
+                <h2>Update Password</h2>
+                <div class="content-body">
+                    <label for="oldPassword">Old Password</label>
+                    <input type="password" id="oldPassword">
+                    <span class="error-message" id="oldPasswordError"></span>
+
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword">
+                    <span class="error-message" id="newPasswordError"></span>
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword">
+                    <span class="error-message" id="confirmPasswordError"></span>
+
+                    <button class="save-button" onclick="updatePassword()">Save Changes</button>
+                </div>
+            </div>
+            <div id="deleteAccount" class="section">
+                <h2>Delete Account</h2>
+                <div class="content-body">
+                    <button onclick="deleteAccount()" class="delete-button">Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripp.js"></script>
+</body>
+</html>

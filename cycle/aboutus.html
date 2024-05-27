@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SpinStation</title>
+    <link rel="stylesheets" href="./style.css">
+    <style>
+        
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace 'background.jpg' with your actual image file */
+        background-position: center;
+        background-size: cover;
+        color: white;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 50px;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        text-align: left;
+        
+        
+    }
+    .address {
+        margin-top: 20px; /* Add margin to separate the address from the paragraphs */
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity by changing the last value (0.5) */
+        z-index: -1; /* Ensure the overlay stays behind the content */
+    }
+    nav {
+    background:paleturquoise;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+   
+}
+
+.left-corner, .right-corner {
+    display: flex;
+}
+
+.left-corner a, .right-corner a {
+    color:coral;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 2px solid silver;
+    transition: all 0.3s ease;
+    font-weight: bold;
+
+}
+
+.right-corner a:first-child {
+    margin-right: 20px;}
+
+.right-corner a:last-child {
+    margin-left: auto; 
+    /* Pushes "Register" to the right corner */
+}
+
+/* menu icon */
+.menu-icon {
+    display: none; 
+    /* hide the menu icon */
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(238, 159, 12);
+    margin: 5px 0; 
+    transition: all 0.3s ease; 
+}
+
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Display the menu icon on smaller screens */
+        cursor: pointer;
+         /* Add pointer cursor */
+    }
+
+    .left-corner {
+        display: none; /* Hide the corner buttons */
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: flex-start;
+        
+         /* Align buttons to the start of the container */
+    }
+
+    .menu-open  {
+        display: flex;
+       
+ /* Display the corner buttons when menu is open */
+    }
+
+
+    .menu-open .bar:nth-child(1) {
+        transform: translateY(10px) translateX(16px) rotate(-45deg); /* Rotate first bar */
+    }
+
+    .menu-open .bar:nth-child(2) {
+        opacity: 0; /* Hide the middle bar */
+    }
+
+    .menu-open .bar:nth-child(3) {
+        transform: translateY(10px) translateX(-16px) rotate(45deg); /* Rotate third bar */
+    }
+}
+
+/* Styling for hover effects */
+.left-corner a:hover,
+.right-corner a:hover {
+    background-color: burlywood;
+    color: black;
+    border-color: goldenrod;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+
+}
+</style>
+
+
+    
+</head>
+<body>
+    <nav>
+        <div class="left-corner">
+            <a href="./Rent.html">Home</a>
+            <a href="./rent.html">Rent</a>
+            <a href="./aboutus.html">About us</a>
+            <a href="./contactus.html">Contact us</a>
+        </div>
+        <div>
+            <img src="./assets/logo.png" >
+        </div>
+
+        <div class="right-corner">
+            <a href="http://127.0.0.1:5501/login.html">Login</a>
+            <a href="http://127.0.0.1:5501/regristation.html">Register</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+
+
+    <div class="overlay"></div>
+<div class="container">
+    <h1>Fueling Your Adventure: The SpinStation Experience</h1>
+    <p>Welcome to SpinStation, your go-to destination for convenient and affordable cycle rentals! At SpinStation, we're passionate about promoting eco-friendly transportation and providing top-notch service to our customers.</p>
+    <p>Whether you're a local exploring the city or a tourist wanting to see the sights in a unique way, our wide range of bicycles has something for everyone. From sleek road bikes to sturdy mountain bikes, we've got you covered.</p>
+    <p>Our mission is to make cycling accessible to all, so hop on a bike and start exploring today!</p>
+    <p>SpinStation is not just a rental service; it's a community of cycling enthusiasts dedicated to sharing the joy of riding. Join us for group rides, workshops, and events to connect with like-minded individuals and explore the world on two wheels.</p>
+    <p>Experience the freedom and exhilaration of cycling with SpinStation. Whether you're commuting to work, exploring scenic trails, or simply enjoying a leisurely ride, we're here to make your journey unforgettable.</p>
+>   <p class="address">SpinStation<br> Karunagapalli, Kerala</p>
+</div>
+
+
+</body>
+</html>

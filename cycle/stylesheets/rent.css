@@ -1,4 +1,4 @@
-
+/* Container and Layout */
 .container {
     max-width: 1200px;
     margin: 20px auto;
@@ -8,82 +8,99 @@
     justify-content: center;
 }
 
+/* Rental and User Details Containers */
 .rental-details-container,
 .user-details-container {
-    width: 33.33%;
-    padding: 0 10px;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
     box-sizing: border-box;
     margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
+/* Form Styles */
 .rental-form {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
 }
+
 .rental-form label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
 }
+
 .rental-form input[type="text"],
 .rental-form input[type="email"],
+.rental-form input[type="tel"],
 .rental-form input[type="datetime-local"],
 .rental-form select {
-    width: calc(100% - 20px);
+    width: calc(100% - 16px);
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
-    background-color: transparent;
+    background-color: #f9f9f9;
 }
-.rental-form button {
+
+/* Button Styles */
+.rental-form button,
+.user-details-container button {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-right: 10px;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
-.rental-form button:hover {
+
+.rental-form button:hover,
+.user-details-container button:hover {
     background-color: #555;
 }
+
+/* Rental Cost Container */
 .rental-cost-container,
 .user-details-container {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    height:auto;
-    margin-bottom: 20px;
     display: none;
-    
 }
-.rental-form input[type="tel"] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+.rental-cost-container h3,
+.user-details-container h3 {
+    color: #333;
+}
+
+.rental-cost-container p,
+.user-details-container p {
     font-size: 16px;
-    background-color: transparent; /* Set background color to transparent */
+    color: #333;
+    margin: 5px 0;
+    padding: 5px 0;
 }
-p{
+
+/* General Styles */
+p {
     padding: 10px;
     margin: 10px;
-}
-.user-details-container button{
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
     font-size: 16px;
+    color: #333;
+}
+.error {
+    color: red;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .rental-details-container,
+    .user-details-container {
+        width: 90%;
+    }
 }

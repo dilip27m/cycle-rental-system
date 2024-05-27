@@ -5,101 +5,129 @@
 }
 
 body {
-    background-image: url(./assets/WhatsApp\ Image\ 2024-05-07\ at\ 12.20.57.jpeg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
+ 
+    
 }
-
+/* --------------- navigation bar   ------------*/
 nav {
-    background: transparent;
+    background: #afeeee;
     overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-}
-
-.left-corner, .right-corner {
+    border-radius: 10px;
+    z-index: -10;
+  }
+  
+  .left-corner, .right-corner {
     display: flex;
-}
-
-.left-corner a, .right-corner a {
-    color: white;
+  }
+  
+  
+  
+  
+  .left-corner a, .right-corner a {
+    color: coral;
     text-decoration: none;
     padding: 10px 20px;
     margin-right: 20px;
     margin-bottom: 10px;
     border-radius: 20px;
-    border: 2px solid white;
+    border: 2px solid silver;
     transition: all 0.3s ease;
-}
-
-.right-corner a:first-child {
-    margin-right: 20px;}
-
-.right-corner a:last-child {
-    margin-left: auto; 
+    font-weight: bold;
+  }
+  
+  .right-corner a:first-child {
+    margin-right: 20px;
+  }
+  
+  .right-corner a:last-child {
+    margin-left: auto;
     /* Pushes "Register" to the right corner */
-}
-
-/* menu icon */
-.menu-icon {
-    display: none; 
+  }
+  
+  /* Menu icon */
+  .menu-icon {
+    display: none;
     /* hide the menu icon */
-}
-
-.bar {
+  }
+  
+  .bar {
     width: 25px;
     height: 3px;
-    background-color: white;
-    margin: 5px 0; 
-    transition: all 0.3s ease; 
-}
-
-
-@media (max-width: 768px) {
+    background-color: rgb(238, 159, 12);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
     .menu-icon {
-        display: block; /* Display the menu icon on smaller screens */
+        display: block;
+        /* Display the menu icon on smaller screens */
         cursor: pointer;
-         /* Add pointer cursor */
+        /* Add pointer cursor */
     }
-
+  
     .left-corner {
-        display: none; /* Hide the corner buttons */
-        flex-direction: column; /* Stack buttons vertically */
+        display: none;
+        /* Hide the corner buttons */
+        flex-direction: column;
+        /* Stack buttons vertically */
         align-items: flex-start;
-        
-         /* Align buttons to the start of the container */
+        /* Align buttons to the start of the container */
     }
-
-    .menu-open  {
+  
+    .menu-open {
         display: flex;
-       
- /* Display the corner buttons when menu is open */
+        /* Display the corner buttons when menu is open */
     }
-
-
+  
     .menu-open .bar:nth-child(1) {
-        transform: translateY(10px) translateX(16px) rotate(-45deg); /* Rotate first bar */
+        transform: translateY(10px) translateX(16px) rotate(-45deg);
+        /* Rotate first bar */
     }
-
+  
     .menu-open .bar:nth-child(2) {
-        opacity: 0; /* Hide the middle bar */
+        opacity: 0;
+        /* Hide the middle bar */
     }
-
+  
     .menu-open .bar:nth-child(3) {
-        transform: translateY(10px) translateX(-16px) rotate(45deg); /* Rotate third bar */
+        transform: translateY(10px) translateX(-16px) rotate(45deg);
+        /* Rotate third bar */
     }
-}
-
-/* Styling for hover effects */
-.left-corner a:hover,
-.right-corner a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: goldenrod;
+    /* photoes */
+  
+    .cycle2{
+      display: none;
+    }
+  
+    .cycle1{
+      display: none;
+    }
+  
+    /* .cycle3 img{
+      margin-top: 100px;
+      height: 18vh;
+    } */
+  
+  }
+  
+  /* Styling for hover effects */
+  .left-corner a:hover,
+  .right-corner a:hover {
+    background-color: burlywood;
+    color: black;
     border-color: goldenrod;
-}
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+/* ------------- navgation end -----------------*
+
 
 /* Welcome message styles */
 .welcome-message {
@@ -141,12 +169,7 @@ nav {
         opacity: 1;
     }
 }
-img{
-    width: 30px;
-    height:30px;
-    margin:10px;
-    border-radius: 50%;
-}
+
 
 footer {
     background-color:transparent;

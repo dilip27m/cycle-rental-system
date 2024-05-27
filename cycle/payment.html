@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaymentPage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-size: cover;
+            
+            background-image: url('./reddy/payment.jpeg'); /* Set your background image URL here */
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-size: cover; /* Cover the entire form */
+            background-position: center; /* Center the background image */
+            background-color: rgba(255, 255, 255, 0.5); /* Add a semi-transparent background color */
+            padding: 20px;
+            border-radius: 8px;
+            /* box-shadow: 0 0 0 10px gold; */
+
+        }
+        form input[type="submit"] {
+            background-color: orangered;
+            color: rgb(255, 255, 255,0.5);
+            border: none;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: orange;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(46, 42, 42, 0.5);
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"],
+        button
+        {
+            width: 100%;
+            padding: 10px;
+            background-color: orange;
+            color: rgb(255, 255, 255,0.5);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: orange;
+        }
+        #verify_upi_id ,#apply_coupon{
+            margin-top: 15px;
+            background-color:black;
+        }
+        
+ 
+    
+
+   
+ 
+    /* New styles for payment app icons */
+    .payment-icons {
+            text-align: center;
+            margin-top: 20px; /* Adjust margin as needed */
+    }
+    .payment-icons img {
+            width: 50px;
+            margin: 10px; /* Adjust spacing between icons */
+    }
+    </style>
+</head>
+<body>
+    <h2>PAYMENT PROCESS</h2>
+
+    <form action="payment_process.php" method="post">
+  
+        <label for="payment_method">Select Payment Method:</label>
+        <select id="payment_method" name="payment_method" required>
+            <option value="upi">UPI</option>
+            <option value="net_banking">Net Banking</option>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+        </select>
+        <!-- UPI Payment -->
+        <div id="upi_payment" style="display: none;">
+            <label for="upi_id">UPI ID:</label>
+            <input type="text" id="upi_id" name="upi_id" required>
+            <button id="verify_upi_id">Verify</button>
+             <!-- Payment app icons -->
+             <div class="payment-icons">
+                <a href="https://play.google.com/store/apps/details?id=com.phonepe.app" target="_blank">
+                    <img src="./reddy/phonepe.jpeg" alt="PhonePe">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user" target="_blank">
+                    <img src="./reddy/googlepay.jpeg" alt="Google Pay">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=net.one97.paytm" target="_blank">
+                    <img src="./reddy/paytm.jpeg" alt="Paytm">
+                </a>
+            </div>
+        </div>
+        </div>
+        <br>
+        <!-- Net Banking -->
+        <div id="net_banking_payment" style="display: none;">
+            <label for="bank">Select Bank:</label>
+            <select id="bank" name="bank">
+              <option value="bank2">State Bank of India</option>
+              <option value="bank3">ICICI Bank</option>
+              <option value="bank4">HDFC Bank</option>
+              <option value="bank5">Axis Bank</option>
+              <option value="bank6">Punjab National Bank</option>
+              <option value="bank7">Bank of Baroda</option>
+              <option value="bank8">Canara Bank</option>
+              <option value="bank9">Union Bank of India</option>
+              <option value="bank10">Bank of India</option>
+              <option value="bank11">IDBI Bank</option>    
+                <!-- Add more banks here -->
+            </select>
+        </div>
+        <!-- Credit/Debit Card -->
+        <div id="card_payment" style="display: none;">`
+            <label for="card_number">Card Number:</label>
+            <input type="text" id="card_number" name="card_number" pattern="\d{16}" maxlength="16">
+            <label for="expiry">Expiry Date:</label>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/YYYY" pattern="\d{2}/\d{4}" required>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" maxlength="3" pattern="\d{3}" required>
+        </div>
+        <input type="submit" value="Pay Now">
+    </form>
+    <script>
+
+      function validateUPI(upiID) {
+         // Regular expression pattern to validate UPI ID format
+         var pattern = /^\w+@\w+$/;
+    
+         // Check if UPI ID matches the pattern
+        if (pattern.test(upiID)) {
+          // Here, you would typically have logic to verify the UPI ID with a payment API
+          // For the sake of this example, let's assume it's valid
+           return true;
+        } else {
+            return false;
+        }
+      }
+     
+     // Function to verify UPI ID
+     function verifyUPIID(upiID) {
+            // Check if UPI ID contains '@' symbol
+            if (validateUPI(upiID)) {
+                alert('UPI ID ' + upiID + ' verified successfully!');
+            } else {
+                alert('Invalid UPI ID.');
+            }
+        }
+
+       document.getElementById('verify_upi_id').addEventListener('click', function() {
+        var upiID = document.getElementById('upi_id').value;
+        verifyUPIID(upiID);
+     });
+
+    document.getElementById('payment_method').addEventListener('change', function() {
+            var method = this.value;
+            var upiPayment = document.getElementById('upi_payment');
+            var netBankingPayment = document.getElementById('net_banking_payment');
+            var cardPayment = document.getElementById('card_payment');
+
+          if (method === 'upi') {
+                 upiPayment.style.display = 'block';
+          } else {
+                 upiPayment.style.display = 'none';
+          }
+
+          if (method === 'net_banking') {
+                  netBankingPayment.style.display = 'block';
+          } else {
+                  netBankingPayment.style.display = 'none';
+          }
+
+          if (method === 'credit_card' || method === 'debit_card') {
+                  cardPayment.style.display = 'block';
+          } else {
+                  cardPayment.style.display = 'none';
+          }
+          });
+          
+    </script>
+</body>
+</html>

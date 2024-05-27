@@ -6,19 +6,38 @@
     <title>Rent</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./stylesheets/rent.css">
-</head>
+    <link rel="stylesheet" href="prof.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <body>
     <nav>
         <div class="left-corner">
-            <a href="http://127.0.0.1:5500/index.html">Home</a>
-            <a href="http://127.0.0.1:5500/rent.html">Rent</a>
-            <a href="http://127.0.0.1:5500/dashboard.html">Dashboard</a>
-            <a href="#">About us</a>
-        </div>
-        <div class="right-corner">
-            <a href="http://127.0.0.1:5500/login.html#">Login</a>
-            <a href="http://127.0.0.1:5500/regristation.html">Register</a>
-        </div>
+            <a href="./Rent.html">Home</a>
+            <a href="./rent.html">Rent</a>
+            <a href="./aboutus.html">About us</a>
+            <a href="./contactus.html">Contact us</a>
+            
+            <div class="logoCycle">
+                <img src="./assets/logo.png" alt="Logo">
+            </div>
+            <div class="right-corner">
+              <div class="profile-container">
+                  <div class="profile-picture" onclick="toggleDropdown()">
+                      <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Profile Picture">
+                  </div>
+                  <div id="profile-dropdown" class="dropdown-content">
+                      <div class="navContainer">
+                        <a href="profile.html">
+                          <i class="fas fa-user"></i> Profile
+                      </a>
+                      <a href="settings main.html">
+                          <i class="fas fa-cog"></i> Settings
+                      </a>
+                      <a href="logout.html" class="logout">
+                          <i class="fas fa-door-open"></i> Logout
+                      </a>
+                      </div>
+                  </div>
+              </div>
         <div class="menu-icon" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -36,36 +55,39 @@
                     <input type="text" id="name" name="name" required><br>
                     
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br>
+                    <input type="email" id="email" name="email" required>
+                    <span id="emailError" class="error"></span><br>
                     
                     <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Phone number should be 10 digits" required><br>
-                    
-                    <label for="aadhaar">Aadhaar Number:</label>
-                    <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" title="Aadhaar number should be 12 digits" required><br>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Phone number should be 10 digits" required>
+                    <span id="phoneError" class="error"></span><br>
+
                     
                     <label for="cycleType">Cycle Type:</label>
                     <select id="cycleType" name="cycleType">
                         <option value="city">City cycle - $10 per hour</option>
-                        <option value="mountain">Mountain cycle - $15 per hour</option>
-                        <option value="electric">Electric cycle - $20 per hour</option>
+                        <option value="travel">travel cycle - $15 per hour</option>
+                        <option value="gear">gear cycle - $20 per hour</option>
                     </select><br>
                     
                     <label for="startTime">Start Time:</label>
-                    <input type="datetime-local" id="startTime" name="startTime" required><br>
+                    <input type="datetime-local" id="startTime" name="startTime" required>
+                    <span id="startTimeError" class="error"></span><br>
                     
                     <label for="endTime">End Time:</label>
-                    <input type="datetime-local" id="endTime" name="endTime" required><br>
+                    <input type="datetime-local" id="endTime" name="endTime" required>
+                    <span id="endTimeError" class="error"></span><br>
                     
                     <label for="coupon">Coupon:</label>
                     <input type="text" id="coupon" name="coupon"><br>
 
-                    <button type="button" id="showFares">Show Fares</button> <!-- Show Fares button -->
+                    <button type="button" id="showFares">Find a cycle</button>
+                     <!-- Show Fares button -->
                 </form>
             </div>
             <div style="margin-top: 10px;" class="rental-cost-container" id="rentalCostContainer">
-                <h3 style="color: white;">Rental Cost:</h3>
-                <p id="rentalCost" style="font-size: large;font-weight: 900;color: aliceblue;">Please fill out the form above to calculate rental cost.</p>
+                <h3 style="color:black;">Rental Cost:</h3>
+                <p id="rentalCost" style="font-size: large;font-weight: 900;color: black;">Please fill out the form above to calculate rental cost.</p>
             </div>
         </div>
         <div class="user-details-container" id="userDetailsContainer">
@@ -73,25 +95,30 @@
             <p id="userName"></p>
             <p id="userEmail"></p>
             <p id="userPhone"></p>
-            <p id="userAadhaar"></p>
             <p id="userToken"></p>
             <p id="startTime"></p>
             <p id="endTime"></p>
-            <button type="submit" onclick="redirectToDashboard()">Rent & Pay Online</button>
+    
+            <button type="submit"><a href="./payment.html">Rent </a></button>
+           <!---- <button type="submit" onclick="redirectToDashboard()">Rent & Pay Online</button> -->
         </div>
     </div>
-    <footer>
-        <div >
-            <a><img src="/assets/twitter-2012-negative-logo-5C6C1F1521-seeklogo.com.png"></a>
-            <a><img src="/assets/images.png"></a>
-            <a><img src="/assets/images.jpeg"></a>
-            <a><img src="/assets/images (1).png"></a>
-            <a><img src="/assets/images (1).jpeg"></a>
-        </div>
-    </footer>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById('profile-dropdown');
+            dropdown.classList.toggle('show');
+        }
+        function toggleMenu() {
+            var menu = document.querySelector('.left-corner');
+            var menuIcon = document.querySelector('.menu-icon');
+            menu.classList.toggle('menu-open');
+            menuIcon.classList.toggle('menu-open');
+        }
+    </script>
+
 
 
     
         <script src="./scripts/script.js"></script>
-
+        <script src="./scripts/rent.js"></script>
 </html>

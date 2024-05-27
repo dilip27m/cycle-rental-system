@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page Design</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('./login.jpeg'); /* Ensure the image is in an accessible directory */
+            background-size: cover;
+            height: 100vh;
+            backdrop-filter:blur(8px);
+
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            width: 700px;
+            height: 400px;
+            box-shadow: 10px 10px 10px rgba(60, 154, 204, 0.1);
+            border-radius: 50px;
+            overflow: hidden;
+            background-color:rgb(255, 255, 255,0.5);
+        }
+        .sign-up {
+            background-color: rgb(0, 123, 255,0.8);
+            color: white;
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .sign-up h2 {
+            margin-bottom: 20px;
+        }
+        .sign-up button {
+            padding: 10px 20px;
+            background-color: white;
+            color: rgb(0, 123, 255,0.8);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sign-up button:hover {
+            background-color: #e0e0e0;
+        }
+        .sign-in {
+            background-color: rgb(255, 255, 255,0.5);
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          
+        }
+        .sign-in h2 {
+            margin-bottom: 20px;
+        }
+        .sign-in input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: 1px solid rgba(46, 42, 42, 0.5);
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255,0.5);
+        }
+        .sign-in input.error {
+            border-color: red;
+        }
+        .sign-in button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sign-in button:hover {
+            background-color: #0056b3;
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+        .social-buttons img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20%;
+            opacity: 0.8;
+        }
+        .social-buttons a {
+            text-decoration: none;
+            color: #333;
+            border: rgba(27, 26, 26, 0.5);
+            border-radius: 5px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            
+        }
+        .social-buttons a:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sign-up">
+            <h2>Hello, Friend!</h2>
+            <p>Register with your personal details to use all site features</p>
+            <button id="signup-btn">SIGN UP</button>
+        </div>
+        <div class="sign-in">
+            <h2>Sign In</h2>
+            <div class="social-buttons">
+                <a href="#" id="google" onclick="socialSignIn('https://accounts.google.com/')"><img src="google.jpeg" alt="Google"></a>
+                <a href="#" id="facebook" onclick="socialSignIn('https://www.facebook.com/')"><img src="./facebook.jpeg" alt="Facebook"></a>
+                <a href="#" id="linkedin" onclick="socialSignIn('https://www.linkedin.com/')"><img src="./linkedin.jpeg" alt="LinkedIn"></a>
+                <a href="#" id="microsoft" onclick="socialSignIn('https://login.microsoftonline.com/')"><img src="./microsoft.jpeg" alt="Microsoft"></a>
+            </div>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="signin-btn">SIGN IN</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signup-btn').addEventListener('click', function() {
+            window.location.href = 'http://127.0.0.1:5501/reddy/signup.html';
+        });
+
+        document.getElementById('signin-btn').addEventListener('click', function() {
+            var usernameInput = document.getElementById('username');
+            var passwordInput = document.getElementById('password');
+            var username = usernameInput.value;
+            var password = passwordInput.value;
+
+            if (!/[A-Z]/.test(username)) {
+                usernameInput.classList.add('error');
+                alert('Username must contain at least one uppercase letter.');
+                return;
+            } else {
+                usernameInput.classList.remove('error');
+            }
+
+            var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            if (!passwordPattern.test(password)) {
+                passwordInput.classList.add('error');
+                alert('Password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter.');
+                return;
+            } else {
+                passwordInput.classList.remove('error');
+            }
+
+            window.location.href = 'http://127.0.0.1:5501/Rent.html';
+        });
+
+        function socialSignIn(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
