@@ -69,9 +69,15 @@ function calculateRentalCost() {
     if (coupon === 'CYCLE50') {
         rentalCost *= 0.9; // Apply 10% discount
     }
+    if (coupon === 'FIRSTCYCLE') {
+        rentalCost *= 0.9; // Apply 10% discount
+    }
+    if (coupon === 'BEAST') {
+        rentalCost *= 0.9; // Apply 10% discount
+    }
 
     // Display rental cost
-    document.getElementById('rentalCost').textContent = 'Rental Cost: $' + rentalCost.toFixed(2);
+    document.getElementById('rentalCost').textContent = 'Rental Cost: ₹' + rentalCost.toFixed(2);
     document.getElementById('rentalCostContainer').style.display = 'block'; // Show rental cost container
 }
 

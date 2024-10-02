@@ -1,4 +1,9 @@
 /* Container and Layout */
+body {
+    color: white;
+    background-color: black;
+}
+
 .container {
     max-width: 1200px;
     margin: 20px auto;
@@ -16,10 +21,11 @@
     padding: 20px;
     box-sizing: border-box;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    margin: 20px;
+    border-radius: 50px;
+    box-shadow: 0 5px 30px rgba(172, 237, 237,0.5);
+    background-color: #212121;
+    color: white;
 }
 
 /* Form Styles */
@@ -31,7 +37,8 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: #fff; /* Changed to white */
+    margin-left: px;
 }
 
 .rental-form input[type="text"],
@@ -42,8 +49,9 @@
     width: calc(100% - 16px);
     padding: 8px;
     margin-bottom: 15px;
+    margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 200px;
     box-sizing: border-box;
     font-size: 16px;
     background-color: #f9f9f9;
@@ -60,11 +68,53 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    margin-left: 110px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.rental-form button:hover,
-.user-details-container button:hover {
-    background-color: #555;
+.rental-form button:hover{
+    background-color: white;
+    color: #333;
+}
+
+
+.rentButton{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    width: 75px;
+    height: 40px;
+    transition: background-color 0.3s;
+    border-radius: 100px;
+    margin-left: 130px;
+
+}
+
+.rentButton:hover{
+    background-color: white;
+    color: black;
+}
+
+
+a{
+    color: white;
+}
+a:hover{
+    color: black;
+}
+
+
+
+a{
+    text-decoration: none;
 }
 
 /* Rental Cost Container */
@@ -75,15 +125,17 @@
 
 .rental-cost-container h3,
 .user-details-container h3 {
-    color: #333;
+    color: #fff; /* Changed to white */
 }
 
 .rental-cost-container p,
 .user-details-container p {
     font-size: 16px;
-    color: #333;
-    margin: 5px 0;
+    color: #fff; /* Changed to white */
+    margin: 20px 0;
     padding: 5px 0;
+    font-weight: bold;
+
 }
 
 /* General Styles */
@@ -91,8 +143,9 @@ p {
     padding: 10px;
     margin: 10px;
     font-size: 16px;
-    color: #333;
+    color: white;
 }
+
 .error {
     color: red;
 }

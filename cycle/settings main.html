@@ -5,8 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings Page</title>
     <link rel="stylesheet" href="settingscss.css">
+    <link rel="stylesheet" href="./profile/prof.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div class="navbar"     style="
+    margin-bottom: 750px; 
+    width:100vh;
+    border-radius: 100px;
+    
+    position: fixed;
+    top: 15px;
+
+    ">
+        <div class="logo">
+            <img src="https://github.com/dilip27m/cycle-rental-system/blob/main/cycle/assets/logo.png?raw=true" alt="Logo">
+            <span>CycleInstant</span>
+        </div>
+        <div class="hamburger" onclick="toggleNavLinks()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="./Rent.html">Home</a>
+            <a href="./rent.html">Rent</a>
+            <a href="./aboutus.html">About Us</a>
+            <a href="./contactus.html">Contact Us</a>
+            <a href="http://localhost:3000">Customer care</a>
+        </div>
+        <div class="profile-container">
+            <div class="profile-picture" onclick="toggleDropdown()">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Profile Picture">
+            </div>
+            <div id="profile-dropdown" class="dropdown-content">
+                <a href="./settings main.html">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="./HTML HOME PAGE/index.html" class="logout">
+                    <i class="fas fa-door-open"></i> Logout
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="jose.js"></script>
     <div class="wrapper">
         <div class="sidebar">
             <button data-section="personalInfo" class="active">Personal Information</button>
@@ -63,5 +104,17 @@
         </div>
     </div>
     <script src="scripp.js"></script>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById('profile-dropdown');
+            dropdown.classList.toggle('show');
+        }
+        function toggleMenu() {
+            var menu = document.querySelector('.left-corner');
+            var menuIcon = document.querySelector('.menu-icon');
+            menu.classList.toggle('menu-open');
+            menuIcon.classList.toggle('menu-open');
+        }
+    </script>
 </body>
 </html>

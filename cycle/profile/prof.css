@@ -1,0 +1,157 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    color: #000000;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-image: url(https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3766.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1716681600&semt=ais_user);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0px 0px 100px 100px;
+
+    font-weight: bolder;
+    
+   
+}
+
+/* Logo styling */
+.navbar .logo {
+    display: flex;
+    align-items: center; 
+}
+
+.navbar .logo img {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation links */
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    
+}
+
+.navbar .nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    transition: color 0.3s;
+    font-size: large;
+}
+
+.navbar .nav-links a:hover {
+    color: lightblue;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 100px;
+    background-color: #333;
+    transition: 0.5s ease;
+}
+
+/* Profile container and dropdown */
+.profile-container {
+    position: relative;
+    margin: 20px;
+    height: fit-content;
+}
+
+.profile-picture {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 160px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+.dropdown-content a.logout {
+    color: red;
+}
+
+.dropdown-content a i {
+    margin-right: 5px;
+}
+
+/* Hamburger menu styling */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 5px 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .profile-container {
+        position: absolute;
+        right: 30px;
+        top: 15px;
+    }
+}

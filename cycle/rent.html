@@ -3,104 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rent</title>
+    <title>Rent a cycle</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./stylesheets/rent.css">
     <link rel="stylesheet" href="prof.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./profile/prof.css">
+    </head>
 <body>
-    <nav>
-        <div class="left-corner">
-            <a href="./Rent.html">Home</a>
-            <a href="./rent.html">Rent</a>
-            <a href="./aboutus.html">About us</a>
-            <a href="./contactus.html">Contact us</a>
-            
-            <div class="logoCycle">
-                <img src="./assets/logo.png" alt="Logo">
-            </div>
-            <div class="right-corner">
-              <div class="profile-container">
-                  <div class="profile-picture" onclick="toggleDropdown()">
-                      <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Profile Picture">
-                  </div>
-                  <div id="profile-dropdown" class="dropdown-content">
-                      <div class="navContainer">
-                        <a href="profile.html">
-                          <i class="fas fa-user"></i> Profile
-                      </a>
-                      <a href="settings main.html">
-                          <i class="fas fa-cog"></i> Settings
-                      </a>
-                      <a href="logout.html" class="logout">
-                          <i class="fas fa-door-open"></i> Logout
-                      </a>
-                      </div>
-                  </div>
-              </div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+   <!-- Navigation Bar -->
+   <div class="navbar">
+    <div class="logo">
+        <img src="https://github.com/dilip27m/cycle-rental-system/blob/main/cycle/assets/logo.png?raw=true" alt="Logo">
+        <span>CycleInstant</span>
+    </div>
+    <div class="hamburger" onclick="toggleNavLinks()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links">
+        <a href="./Rent.html">Home</a>
+        <a href="./rent.html">Rent</a>
+        <a href="./aboutus.html">About Us</a>
+        <a href="./contactus.html">Contact Us</a>
+        <a href="http://localhost:3000">Customer care</a>
+    </div>
+    <div class="profile-container">
+        <div class="profile-picture" onclick="toggleDropdown()">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Profile Picture">
         </div>
-    </nav>
+        <div id="profile-dropdown" class="dropdown-content">
+
+            <a href="./settings main.html">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+            <a href="./HTML HOME PAGE/index.html" class="logout">
+                <i class="fas fa-door-open"></i> Logout
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="jose.js"></script>
  
     <div class="container">
 
         <div class="rental-details-container">
             <div class="rental-form">
-                <h3>Rental Form:</h3>
+                <h2 style="text-align: center;margin: 10px;">Rental Form</h2>
                 <form action="#" id="rentalForm">                    
-                    <label for="name">Name:</label>
+                    <label for="name">Name</label>
                     <input type="text" id="name" name="name" required><br>
                     
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                     <span id="emailError" class="error"></span><br>
                     
-                    <label for="phone">Phone:</label>
+                    <label for="phone">Phone</label>
                     <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Phone number should be 10 digits" required>
                     <span id="phoneError" class="error"></span><br>
 
                     
-                    <label for="cycleType">Cycle Type:</label>
+                    <label for="cycleType">Cycle Type</label>
                     <select id="cycleType" name="cycleType">
                         <option value="city">City cycle - $10 per hour</option>
                         <option value="travel">travel cycle - $15 per hour</option>
                         <option value="gear">gear cycle - $20 per hour</option>
                     </select><br>
                     
-                    <label for="startTime">Start Time:</label>
+                    <label for="startTime">Start Time</label>
                     <input type="datetime-local" id="startTime" name="startTime" required>
                     <span id="startTimeError" class="error"></span><br>
                     
-                    <label for="endTime">End Time:</label>
+                    <label for="endTime">End Time</label>
                     <input type="datetime-local" id="endTime" name="endTime" required>
                     <span id="endTimeError" class="error"></span><br>
                     
-                    <label for="coupon">Coupon:</label>
+                    <label for="coupon">Coupon</label>
                     <input type="text" id="coupon" name="coupon"><br>
 
-                    <button type="button" id="showFares">Find a cycle</button>
+                    <button type="button" id="showFares" >Find a cycle</button>
                      <!-- Show Fares button -->
                 </form>
             </div>
             <div style="margin-top: 10px;" class="rental-cost-container" id="rentalCostContainer">
-                <h3 style="color:black;">Rental Cost:</h3>
-                <p id="rentalCost" style="font-size: large;font-weight: 900;color: black;">Please fill out the form above to calculate rental cost.</p>
+                
+                <p id="rentalCost" style="font-size: large;font-weight: 900;color: white;">Please fill out the form above to calculate rental cost.</p>
             </div>
         </div>
         <div class="user-details-container" id="userDetailsContainer">
-            <h3>User Details:</h3>
+            <h2 style="text-align: center;margin: 10px;">User Details</h2>
+            <div style="justify-content: center;align-items: center;margin-left: 10px;">
             <p id="userName"></p>
             <p id="userEmail"></p>
             <p id="userPhone"></p>
             <p id="userToken"></p>
             <p id="startTime"></p>
             <p id="endTime"></p>
-    
-            <button type="submit"><a href="./payment.html">Rent </a></button>
-           <!---- <button type="submit" onclick="redirectToDashboard()">Rent & Pay Online</button> -->
+        </div>
+            <a class="rentButton" href="./payment.html">Rent </a>
         </div>
     </div>
     <script>
